@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CategoriesSection } from "@/components/home/CategoriesSection";
 import { HeroSection } from "@/components/home/HeroSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
+import { LatestCompaniesSection } from "@/components/home/LatestCompaniesSection";
 
 export const metadata: Metadata = {
   title: "Strona główna",
@@ -13,6 +14,7 @@ export default function HomePage() {
       <HeroSection />
       <CategoriesSection />
       <HowItWorksSection />
+      <LatestCompaniesSection />
     </>
   );
 }
