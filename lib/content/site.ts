@@ -1,10 +1,15 @@
 export const siteConfig = {
   name: "Klimaserwis.pl",
+  legalName: "Klimaserwis.pl",
   tagline: "Sprawdzone firmy HVAC w Twoim mieście",
   description:
     "Klimaserwis.pl to katalog firm HVAC i szybkie zapytania o klimatyzację, pompy ciepła oraz serwis. Znajdź fachowca i wyślij zgłoszenie bez zakładania konta.",
   url: "https://klimaserwis.pl",
   locale: "pl_PL",
+  language: "pl",
+  twitterHandle: "@klimaserwis",
+  email: "kontakt@klimaserwis.pl",
+  sameAs: [] as string[],
 } as const;
 
 /** Primary header navigation — flat links only, no dropdowns. */
@@ -48,4 +53,20 @@ export const footerLegal = [
   { href: "/polityka-prywatnosci", label: "Privacy" },
   { href: "/regulamin", label: "Terms" },
   { href: "/polityka-cookies", label: "Cookie Policy" },
+] as const;
+
+/** Public indexable routes for sitemap (static shells). */
+export const sitemapStaticPaths = [
+  "/",
+  "/firmy",
+  "/klimatyzacja",
+  "/pompy-ciepla",
+  "/rekuperacja",
+  "/wentylacja",
+  "/poradniki",
+  "/dla-firm",
+  "/kontakt",
+  "/polityka-prywatnosci",
+  "/regulamin",
+  "/polityka-cookies",
 ] as const;

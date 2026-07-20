@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PagePlaceholder } from "@/components/ui/PagePlaceholder";
 import { latestCompanies } from "@/lib/content/companies";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -16,7 +17,15 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const company = latestCompanies.find((item) => item.slug === slug);
-  return { title: company?.name ?? "Firma" };
+  if (!company) {
+    return createPageMetadata({ title: "Firma", path: "/firmy", noIndex: true });
+  }
+
+  return createPageMetadata({
+    title: company.name,
+    description: `${company.name} — ${company.city}. ${company.description}`,
+    path: `/firmy/${company.slug}`,
+  });
 }
 
 export default async function CompanyProfilePage({ params }: PageProps) {

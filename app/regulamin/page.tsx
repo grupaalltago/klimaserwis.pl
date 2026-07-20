@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { PagePlaceholder } from "@/components/ui/PagePlaceholder";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Terms",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Regulamin",
+  description: "Regulamin korzystania z serwisu Klimaserwis.pl.",
+  path: "/regulamin",
+});
 
 export default function TermsPage() {
   return (
