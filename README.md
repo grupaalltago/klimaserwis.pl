@@ -1,46 +1,48 @@
 # Klimaserwis.pl
 
-Production-oriented HVAC SaaS platform for Poland.
+Next.js 15 App Router skeleton for the Klimaserwis.pl HVAC platform.
 
-**Status:** frontend MVP (KS-0005) — Next.js App Router UI only. No auth, database, or API yet.
-
-## Stack (frontend MVP)
+## Stack
 
 - Next.js 15 (App Router)
 - TypeScript
 - Tailwind CSS v4
+- ESLint + Prettier
+- Dark mode ready
 
-## Repository layout
+## Structure
 
 ```text
-src/app/           Next.js routes (interface adapters)
-src/components/    UI composition (layout, home, ui)
-src/content/       Static content / placeholders
-src/shared/        Shared utilities
-docs/              Product, architecture, UX documentation
-.cursor/           Agent rules
-.github/           CI and templates
-docker/            Container scaffolding
+app/                 Routes (App Router)
+components/          UI + layout + design system
+hooks/               React hooks
+lib/                 Shared utilities & content
+types/               Shared TypeScript types
+public/              Static assets
+styles/              Global CSS / design tokens
+docs/                Product & architecture docs
 ```
 
-## Getting started
+## Pages
+
+- `/`
+- `/firmy`
+- `/klimatyzacja`
+- `/pompy-ciepla`
+- `/rekuperacja`
+- `/wentylacja`
+- `/poradniki`
+- `/dla-firm`
+- `/kontakt`
+
+All pages inherit the root layout: Header → Main → Footer.
+
+## Scripts
 
 ```bash
 npm install
 npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-```bash
 npm run build
-npm run start
 npm run lint
+npm run format
 ```
-
-## Documentation
-
-- [docs/VISION.md](docs/VISION.md)
-- [docs/ux/README.md](docs/ux/README.md)
-- [docs/TECH_STACK.md](docs/TECH_STACK.md)
-- [docs/architecture/open-decisions.md](docs/architecture/open-decisions.md)
