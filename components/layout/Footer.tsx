@@ -1,66 +1,60 @@
 import Link from "next/link";
+import { FooterLinkGroup } from "@/components/ui/FooterLinkGroup";
+import { Logo } from "@/components/ui/Logo";
 import { Container } from "@/components/ui/Container";
 import {
+  footerInformation,
   footerLegal,
-  footerNav,
-  headerCta,
+  footerQuickLinks,
+  footerServices,
   siteConfig,
 } from "@/lib/content/site";
 
+/**
+ * Minimal Apple-like site footer.
+ * Logo + link columns + copyright / legal bar.
+ */
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-brand-950 text-white">
-      <div
-        aria-hidden
-        className="absolute -right-20 top-0 h-64 w-64 rounded-full bg-brand-600/20 blur-3xl"
-      />
-      <Container className="relative grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
-        <div className="space-y-4">
-          <p className="font-display text-2xl font-bold tracking-tight">
-            {siteConfig.name}
-          </p>
-          <p className="max-w-sm text-sm leading-relaxed text-white/70">
-            Nowoczesny katalog firm HVAC i szybkie zapytania o klimatyzację,
-            pompy ciepła oraz serwis w całej Polsce.
-          </p>
-          <Link
-            href={headerCta.href}
-            className="inline-flex text-sm font-semibold text-sky-200 transition hover:text-white"
-          >
-            {headerCta.label} →
-          </Link>
+    <footer className="border-t border-black/5 bg-[#f5f5f7] dark:border-border dark:bg-surface-muted">
+      <Container className="py-12 sm:py-14">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)] lg:gap-16">
+          <div className="max-w-xs space-y-3">
+            <Logo className="text-[17px] sm:text-[17px]" />
+            <p className="text-[12px] leading-relaxed text-muted">
+              {siteConfig.tagline}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            <FooterLinkGroup title="Quick links" links={footerQuickLinks} />
+            <FooterLinkGroup title="Services" links={footerServices} />
+            <FooterLinkGroup
+              title="Information"
+              links={footerInformation}
+              className="col-span-2 sm:col-span-1"
+            />
+          </div>
         </div>
 
-        <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-white/45">
-            Nawigacja
+        <div className="mt-12 flex flex-col gap-4 border-t border-black/5 pt-6 dark:border-border sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-[11px] text-subtle">
+            Copyright © {year} {siteConfig.name}. All rights reserved.
           </p>
-          <ul className="space-y-2.5">
-            {footerNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-sm text-white/80 transition hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
 
-        <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-white/45">
-            Informacje
-          </p>
-          <ul className="space-y-2.5">
-            {footerLegal.map((item) => (
-              <li key={item.href}>
+          <ul className="flex flex-wrap items-center gap-x-1 text-[11px] text-subtle">
+            {footerLegal.map((item, index) => (
+              <li key={item.href} className="flex items-center">
+                {index > 0 ? (
+                  <span aria-hidden className="mx-2 text-black/15 dark:text-border">
+                    |
+                  </span>
+                ) : null}
                 <Link
                   href={item.href}
-                  className="text-sm text-white/80 transition hover:text-white"
+                  className="transition-colors hover:text-foreground"
                 >
                   {item.label}
                 </Link>
@@ -69,17 +63,6 @@ export function Footer() {
           </ul>
         </div>
       </Container>
-
-      <div className="relative border-t border-white/10">
-        <Container className="flex flex-col gap-2 py-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-white/45">
-            © {year} {siteConfig.name}
-          </p>
-          <p className="text-xs text-white/35">
-            Frontend MVP — dane firm i artykułów są przykładowe.
-          </p>
-        </Container>
-      </div>
     </footer>
   );
 }

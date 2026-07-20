@@ -5,3 +5,4 @@ export type { NavItem } from "@/components/layout/Navbar";
 export { MainLayout } from "@/components/layout/MainLayout";
 export { Logo } from "@/components/ui/Logo";
 export { NavLinks } from "@/components/ui/NavLinks";
+export { FooterLinkGroup } from "@/components/ui/FooterLinkGroup";

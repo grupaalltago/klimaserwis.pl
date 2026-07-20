@@ -24,15 +24,28 @@ export const headerCta = {
   href: "/dla-firm",
 } as const;
 
-export const footerNav = [
+export const footerQuickLinks = [
   { href: "/firmy", label: "Firmy" },
-  { href: "/klimatyzacja", label: "Klimatyzacja" },
-  { href: "/pompy-ciepla", label: "Pompy ciepła" },
-  { href: "/rekuperacja", label: "Rekuperacja" },
-  { href: "/wentylacja", label: "Wentylacja" },
   { href: "/poradniki", label: "Poradniki" },
   { href: "/dla-firm", label: "Dla firm" },
   { href: "/kontakt", label: "Kontakt" },
 ] as const;
 
-export const footerLegal = [{ href: "/kontakt", label: "Kontakt" }] as const;
+export const footerServices = [
+  { href: "/klimatyzacja", label: "Klimatyzacja" },
+  { href: "/pompy-ciepla", label: "Pompy ciepła" },
+  { href: "/rekuperacja", label: "Rekuperacja" },
+  { href: "/wentylacja", label: "Wentylacja" },
+] as const;
+
+export const footerInformation = [
+  { href: "/dla-firm", label: "Dodaj firmę" },
+  { href: "/kontakt", label: "Kontakt" },
+  { href: "/poradniki", label: "Poradniki" },
+] as const;
+
+export const footerLegal = [
+  { href: "/polityka-prywatnosci", label: "Privacy" },
+  { href: "/regulamin", label: "Terms" },
+  { href: "/polityka-cookies", label: "Cookie Policy" },
+] as const;
