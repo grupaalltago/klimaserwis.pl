@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CategoriesSection } from "@/components/home/CategoriesSection";
+import { CtaSection } from "@/components/home/CtaSection";
 import { HeroSection } from "@/components/home/HeroSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { LatestArticlesSection } from "@/components/home/LatestArticlesSection";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <HowItWorksSection />
       <LatestCompaniesSection />
       <LatestArticlesSection />
+      <CtaSection />
     </>
   );
 }
