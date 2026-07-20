@@ -1,10 +1,13 @@
 import type { MetadataRoute } from "next";
-import { latestArticles } from "@/lib/content/articles";
-import { latestCompanies } from "@/lib/content/companies";
+import { getArticles, getCompanies } from "@/lib/data";
 import { siteConfig, sitemapStaticPaths } from "@/lib/content/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
+  const [companies, articles] = await Promise.all([
+    getCompanies(),
+    getArticles(),
+  ]);
 
   const staticEntries: MetadataRoute.Sitemap = sitemapStaticPaths.map(
     (path) => ({
@@ -15,23 +18,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  const companyEntries: MetadataRoute.Sitemap = latestCompanies.map(
-    (company) => ({
-      url: new URL(`/firmy/${company.slug}`, siteConfig.url).toString(),
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.6,
-    }),
-  );
+  const companyEntries: MetadataRoute.Sitemap = companies.map((company) => ({
+    url: new URL(`/firmy/${company.slug}`, siteConfig.url).toString(),
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.6,
+  }));
 
-  const articleEntries: MetadataRoute.Sitemap = latestArticles.map(
-    (article) => ({
-      url: new URL(`/poradniki/${article.slug}`, siteConfig.url).toString(),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    }),
-  );
+  const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: new URL(`/poradniki/${article.slug}`, siteConfig.url).toString(),
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
 
   return [...staticEntries, ...companyEntries, ...articleEntries];
 }

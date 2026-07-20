@@ -1,10 +1,10 @@
 import { Badge, Button } from "@/components/design-system";
 import { StarRating } from "@/components/ui/StarRating";
-import type { MockCompany } from "@/lib/content/companies";
+import type { Company } from "@/types/Company";
 import { cn } from "@/lib/cn";
 
 export type CompanyCardProps = {
-  company: MockCompany;
+  company: Company;
   className?: string;
 };
 

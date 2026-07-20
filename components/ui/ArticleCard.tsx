@@ -1,9 +1,9 @@
 import { Badge, Button } from "@/components/design-system";
-import type { MockArticle } from "@/lib/content/articles";
+import type { Article } from "@/types/Article";
 import { cn } from "@/lib/cn";
 
 export type ArticleCardProps = {
-  article: MockArticle;
+  article: Article;
   className?: string;
 };
 

@@ -1,28 +1,20 @@
 import Link from "next/link";
 import { Icon, type IconName } from "@/components/design-system";
+import type { Category } from "@/types/Category";
 import { cn } from "@/lib/cn";
 
 export type CategoryCardProps = {
-  title: string;
-  description: string;
-  href: string;
-  icon: IconName;
+  category: Category;
   className?: string;
 };
 
 /**
  * Reusable category card — icon, title, description, hover motion.
  */
-export function CategoryCard({
-  title,
-  description,
-  href,
-  icon,
-  className,
-}: CategoryCardProps) {
+export function CategoryCard({ category, className }: CategoryCardProps) {
   return (
     <Link
-      href={href}
+      href={category.href}
       className={cn(
         "group flex h-full flex-col rounded-2xl border border-black/8 bg-white p-6 transition duration-200",
         "hover:-translate-y-1 hover:border-black/15 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)]",
@@ -32,13 +24,13 @@ export function CategoryCard({
       )}
     >
       <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#f5f5f7] text-foreground transition duration-200 group-hover:scale-105 dark:bg-surface-muted">
-        <Icon name={icon} size="md" />
+        <Icon name={category.icon as IconName} size="md" />
       </span>
       <h3 className="mt-5 font-display text-lg font-semibold tracking-tight text-foreground">
-        {title}
+        {category.title}
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
-        {description}
+        {category.description}
       </p>
       <span className="mt-5 text-sm font-medium text-brand-700 transition group-hover:translate-x-0.5 dark:text-brand-300">
         Zobacz więcej →

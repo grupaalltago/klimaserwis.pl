@@ -1,12 +1,14 @@
 import { Button, Grid } from "@/components/design-system";
 import { ArticleCard } from "@/components/ui/ArticleCard";
 import { Container } from "@/components/ui/Container";
-import { latestArticles } from "@/lib/content/articles";
+import { getArticles } from "@/lib/data";
 
 /**
- * Homepage “Latest articles” — three mock cards, no CMS.
+ * Homepage “Latest articles” — data via central data layer.
  */
-export function LatestArticlesSection() {
+export async function LatestArticlesSection() {
+  const articles = await getArticles();
+
   return (
     <section
       className="border-b border-black/5 bg-white py-16 sm:py-20 dark:border-border dark:bg-background"
@@ -35,7 +37,7 @@ export function LatestArticlesSection() {
         </div>
 
         <Grid cols={3} gap={4} className="mt-10" as="ul">
-          {latestArticles.map((article) => (
+          {articles.map((article) => (
             <li key={article.id} className="list-none">
               <ArticleCard article={article} />
             </li>

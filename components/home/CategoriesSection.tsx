@@ -1,12 +1,14 @@
 import { CategoryCard } from "@/components/ui/CategoryCard";
 import { Container } from "@/components/ui/Container";
 import { Grid } from "@/components/design-system";
-import { categories } from "@/lib/content/categories";
+import { getCategories } from "@/lib/data";
 
 /**
  * Homepage categories — HVAC service cards.
  */
-export function CategoriesSection() {
+export async function CategoriesSection() {
+  const categories = await getCategories();
+
   return (
     <section
       className="border-b border-black/5 bg-[#f5f5f7] py-16 sm:py-20 dark:border-border dark:bg-surface-muted"
@@ -32,12 +34,7 @@ export function CategoriesSection() {
         <Grid cols={4} gap={4} className="mt-10" as="ul">
           {categories.map((category) => (
             <li key={category.id} className="min-h-0 list-none">
-              <CategoryCard
-                title={category.title}
-                description={category.description}
-                href={category.href}
-                icon={category.icon}
-              />
+              <CategoryCard category={category} />
             </li>
           ))}
         </Grid>

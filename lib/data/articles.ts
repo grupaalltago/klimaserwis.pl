@@ -1,14 +1,9 @@
-export type MockArticle = {
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  imageLabel: string;
-};
+import type { Article } from "@/types/Article";
 
-/** Static mock data for homepage — no CMS/database. */
-export const latestArticles: MockArticle[] = [
+/**
+ * Static article seed — replace with CMS/database query in getArticles().
+ */
+const articles: Article[] = [
   {
     id: "1",
     slug: "jak-wybrac-serwis-klimatyzacji",
@@ -37,3 +32,20 @@ export const latestArticles: MockArticle[] = [
     imageLabel: "Serwis",
   },
 ];
+
+/**
+ * Returns all articles.
+ * Swap implementation for a database/CMS query without changing callers.
+ */
+export async function getArticles(): Promise<Article[]> {
+  return articles;
+}
+
+/**
+ * Returns an article by slug, or null when not found.
+ */
+export async function getArticleBySlug(
+  slug: string,
+): Promise<Article | null> {
+  return articles.find((article) => article.slug === slug) ?? null;
+}
