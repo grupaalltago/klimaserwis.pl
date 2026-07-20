@@ -1,0 +1,28 @@
+# Example Compose skeleton — NOT active.
+# Copy to docker-compose.yml only after OD-002 / OD-004 / OD-009 ADRs are accepted.
+# Replace placeholders; do not assume PostgreSQL, Redis, or Node — those are open.
+
+name: klimaserwis-local
+
+# services:
+#   api:
+#     build:
+#       context: ../..
+#       dockerfile: docker/images/Dockerfile.api   # path TBD after OD-002
+#     env_file:
+#       - ../../.env
+#     ports:
+#       - "8080:8080"
+#     depends_on:
+#       - db
+#
+#   db:
+#     image: POSTGRES_OR_OTHER_PER_OD-004
+#     environment:
+#       # use env vars — never hardcode secrets
+#       POSTGRES_PASSWORD: ${DB_PASSWORD}
+#     volumes:
+#       - db_data:/var/lib/postgresql/data
+#
+# volumes:
+#   db_data:

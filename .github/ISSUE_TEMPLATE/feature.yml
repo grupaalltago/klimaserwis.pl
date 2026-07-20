@@ -1,0 +1,43 @@
+name: Feature
+description: New product or platform capability
+title: "[feat] "
+labels: ["feature"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user or business problem are we solving?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Required when architecture or stack is involved.
+  - type: checkboxes
+    id: domains
+    attributes:
+      label: Domains affected
+      options:
+        - label: HVAC Directory
+        - label: Blog
+        - label: Lead Generation
+        - label: CRM
+        - label: ERP
+        - label: AI Assistant
+        - label: Mobile
+        - label: Public REST API
+        - label: Platform / cross-cutting
+  - type: input
+    id: open_decisions
+    attributes:
+      label: Blocking open decisions
+      description: e.g. None, OD-001, OD-005
+      placeholder: None

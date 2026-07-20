@@ -1,0 +1,13 @@
+---
+description: Documentation and ADR conventions for Klimaserwis.pl
+globs: docs/**/*
+alwaysApply: false
+---
+
+# Documentation rules
+
+- Keep docs concise and actionable; avoid speculative implementation detail.
+- Open questions belong in `docs/architecture/open-decisions.md` or a Proposed ADR.
+- Domain briefs stay capability-focused: purpose, responsibilities, non-responsibilities, dependencies.
+- When resolving an open decision, add an ADR and link it from the open-decisions index.
+- Do not invent production metrics, SLAs, or stack choices inside docs without marking them as open/TBD.

@@ -1,0 +1,29 @@
+name: Architecture decision
+description: Propose or track an ADR / open decision
+title: "[adr] "
+labels: ["architecture"]
+body:
+  - type: input
+    id: open_decision
+    attributes:
+      label: Related open decision ID
+      description: e.g. OD-001
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives (minimum two)
+      description: Include trade-offs for each alternative.
+    validations:
+      required: true
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommendation (non-binding until accepted)
+    validations:
+      required: true

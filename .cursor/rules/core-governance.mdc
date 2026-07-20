@@ -1,0 +1,15 @@
+---
+description: Core Klimaserwis.pl engineering governance for all agent work
+alwaysApply: true
+---
+
+# Klimaserwis.pl — core rules
+
+- Treat this repo as a **production-grade SaaS** (MVP → nationwide HVAC platform).
+- Follow **SOLID**, **DRY**, **KISS**, and **Clean Architecture** in every file.
+- **Never** make architectural decisions alone. If unclear: list options, trade-offs, and a recommendation; wait for approval/ADR.
+- Consult `docs/architecture/open-decisions.md` before choosing stack, layout, database, or topology.
+- Do not add business logic unless explicitly requested; prefer docs and scaffolding when preparing the repo.
+- No secrets in git. No drive-by refactors unrelated to the task.
+- Update docs/ADRs when boundaries or decisions change.
+- Prefer small, reviewable changes that respect domain boundaries in `docs/architecture/boundaries.md`.

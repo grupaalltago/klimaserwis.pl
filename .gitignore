@@ -1,0 +1,56 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.iml
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+secrets/
+
+# Dependencies / build
+node_modules/
+dist/
+build/
+out/
+coverage/
+.turbo/
+.next/
+.nuxt/
+target/
+bin/
+obj/
+vendor/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.gradle/
+.terraform/
+*.tsbuildinfo
+.vercel
+next-env.d.ts
+
+# Docker local overrides
+docker/compose/docker-compose.override.yml
+docker/compose/docker-compose.yml
+
+# Logs & temp
+logs/
+*.log
+tmp/
+temp/
+.cache/
+
+# Test / tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

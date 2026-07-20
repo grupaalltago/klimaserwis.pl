@@ -1,0 +1,13 @@
+---
+description: Docker scaffolding conventions — no stack lock-in
+globs: docker/**/*
+alwaysApply: false
+---
+
+# Docker rules
+
+- Keep compose and Dockerfiles as **scaffolding** until hosting/runtime ADRs are accepted.
+- Prefer placeholders and comments that reference open decisions (OD-002, OD-004, OD-009).
+- Do not bake secrets into images or compose files.
+- Local overrides belong in gitignored files (e.g. `docker-compose.override.yml`).
+- One concern per service definition when real services are added.

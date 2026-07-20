@@ -1,0 +1,11 @@
+# Example API image — NOT active.
+# Uncomment and complete only after backend runtime ADR (OD-002) is accepted.
+
+# syntax=docker/dockerfile:1
+#
+# FROM runtime-base-per-adr:tag
+# WORKDIR /app
+# # Copy published artifacts only — keep build in CI when possible
+# # USER nonroot
+# # HEALTHCHECK — define after runtime known
+# # ENTRYPOINT ["/app/server"]

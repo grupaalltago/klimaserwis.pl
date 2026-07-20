@@ -1,0 +1,34 @@
+# CI scaffolding — inactive until stack ADRs (OD-002, OD-009) are accepted.
+# This workflow documents the intended pipeline stages without assuming a runtime.
+
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  bootstrap-guard:
+    name: Bootstrap guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify required structure
+        run: |
+          set -euo pipefail
+          test -d docs
+          test -d .cursor
+          test -d .github
+          test -d docker
+          test -f README.md
+          test -f docs/architecture/open-decisions.md
+          echo "Repository structure OK."
+
+      - name: Stack build placeholder
+        run: |
+          echo "Application build/test steps will be added after OD-002 and OD-009 ADRs are accepted."
+          echo "Do not add language-specific CI here without an accepted ADR."
