@@ -1,7 +1,10 @@
-import { Badge, Button } from "@/components/design-system";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { Card, CardFooter } from "@/components/ui/Card";
+import { Heading } from "@/components/ui/Heading";
+import { Text } from "@/components/ui/Text";
 import { StarRating } from "@/components/ui/StarRating";
 import type { Company } from "@/types/Company";
-import { cn } from "@/lib/cn";
 
 export type CompanyCardProps = {
   company: Company;
@@ -15,12 +18,7 @@ export function CompanyCard({ company, className }: CompanyCardProps) {
   const profileHref = `/firma/${company.slug}`;
 
   return (
-    <article
-      className={cn(
-        "flex h-full flex-col rounded-2xl border border-black/8 bg-white p-5 dark:border-border dark:bg-surface",
-        className,
-      )}
-    >
+    <Card className={className} as="article">
       <div className="flex items-start gap-3">
         <div
           aria-hidden
@@ -29,10 +27,12 @@ export function CompanyCard({ company, className }: CompanyCardProps) {
           {company.logoInitials}
         </div>
         <div className="min-w-0 flex-1">
-          <h3 className="truncate font-display text-lg font-semibold tracking-tight text-foreground">
+          <Heading variant="h4" as="h3" className="truncate">
             {company.name}
-          </h3>
-          <p className="mt-0.5 text-sm text-muted">{company.city}</p>
+          </Heading>
+          <Text variant="small" className="mt-0.5 text-muted">
+            {company.city}
+          </Text>
         </div>
       </div>
 
@@ -48,15 +48,15 @@ export function CompanyCard({ company, className }: CompanyCardProps) {
         ))}
       </ul>
 
-      <p className="mt-3 line-clamp-2 flex-1 text-sm leading-relaxed text-muted">
+      <Text variant="small" className="mt-3 line-clamp-2 flex-1 text-muted">
         {company.description}
-      </p>
+      </Text>
 
-      <div className="mt-5">
+      <CardFooter>
         <Button href={profileHref} variant="secondary" className="w-full">
           Zobacz profil
         </Button>
-      </div>
-    </article>
+      </CardFooter>
+    </Card>
   );
 }

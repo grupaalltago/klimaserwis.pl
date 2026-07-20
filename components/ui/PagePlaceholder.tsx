@@ -1,26 +1,36 @@
-import { Container } from "@/components/ui/Container";
+import {
+  Container,
+  PageHeader,
+  Section,
+  Text,
+} from "@/components/ui";
 
 type PagePlaceholderProps = {
   title: string;
   description?: string;
 };
 
-/** Shared empty-page shell for the project skeleton. */
+/** Shared empty-page shell for unfinished routes. */
 export function PagePlaceholder({
   title,
   description = "Strona w przygotowaniu.",
 }: PagePlaceholderProps) {
   return (
-    <section className="py-16 sm:py-24">
-      <Container className="max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-300">
-          Klimaserwis.pl
-        </p>
-        <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-foreground">
-          {title}
-        </h1>
-        <p className="mt-4 text-base leading-relaxed text-muted">{description}</p>
+    <Section spacing="xl" tone="plain" contained={false}>
+      <Container size="md">
+        <PageHeader
+          eyebrow={
+            <Text
+              variant="caption"
+              className="text-brand-700 dark:text-brand-300"
+            >
+              Klimaserwis.pl
+            </Text>
+          }
+          title={title}
+          description={description}
+        />
       </Container>
-    </section>
+    </Section>
   );
 }

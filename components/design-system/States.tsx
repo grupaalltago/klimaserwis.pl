@@ -1,6 +1,9 @@
 import { IconLoader, type IconSize } from "@/components/design-system/Icon";
 import { cn } from "@/lib/cn";
 
+export { EmptyState } from "@/components/ui/EmptyState";
+export type { EmptyStateProps } from "@/components/ui/EmptyState";
+
 type SpinnerProps = {
   size?: IconSize;
   className?: string;
@@ -38,41 +41,5 @@ export function Skeleton({ className }: SkeletonProps) {
         className,
       )}
     />
-  );
-}
-
-type EmptyStateProps = {
-  title: string;
-  description?: string;
-  icon?: React.ReactNode;
-  action?: React.ReactNode;
-  className?: string;
-};
-
-export function EmptyState({
-  title,
-  description,
-  icon,
-  action,
-  className,
-}: EmptyStateProps) {
-  return (
-    <div
-      className={cn(
-        "flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-surface-muted/60 px-6 py-12 text-center",
-        className,
-      )}
-    >
-      {icon ? <div className="mb-4 text-muted">{icon}</div> : null}
-      <p className="font-display text-lg font-semibold text-foreground">
-        {title}
-      </p>
-      {description ? (
-        <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
-          {description}
-        </p>
-      ) : null}
-      {action ? <div className="mt-6">{action}</div> : null}
-    </div>
   );
 }

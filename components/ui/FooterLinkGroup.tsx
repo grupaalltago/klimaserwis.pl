@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Heading } from "@/components/ui/Heading";
+import { Text } from "@/components/ui/Text";
 import { cn } from "@/lib/cn";
 
 export type FooterLinkItem = {
@@ -19,17 +21,19 @@ export function FooterLinkGroup({
 }: FooterLinkGroupProps) {
   return (
     <div className={cn("min-w-0", className)}>
-      <h2 className="text-[12px] font-semibold tracking-tight text-foreground">
+      <Heading variant="h4" as="h2" className="text-[12px] sm:text-[12px]">
         {title}
-      </h2>
+      </Heading>
       <ul className="mt-3 space-y-2">
         {links.map((item) => (
           <li key={`${item.href}-${item.label}`}>
             <Link
               href={item.href}
-              className="text-[12px] leading-relaxed text-muted transition-colors hover:text-foreground"
+              className="transition-colors hover:text-foreground"
             >
-              {item.label}
+              <Text variant="small" as="span" className="text-[12px] text-muted">
+                {item.label}
+              </Text>
             </Link>
           </li>
         ))}

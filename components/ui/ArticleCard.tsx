@@ -1,6 +1,9 @@
-import { Badge, Button } from "@/components/design-system";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { Card, CardFooter } from "@/components/ui/Card";
+import { Heading } from "@/components/ui/Heading";
+import { Text } from "@/components/ui/Text";
 import type { Article } from "@/types/Article";
-import { cn } from "@/lib/cn";
 
 export type ArticleCardProps = {
   article: Article;
@@ -14,19 +17,14 @@ export function ArticleCard({ article, className }: ArticleCardProps) {
   const href = `/poradniki/${article.slug}`;
 
   return (
-    <article
-      className={cn(
-        "flex h-full flex-col overflow-hidden rounded-2xl border border-black/8 bg-white dark:border-border dark:bg-surface",
-        className,
-      )}
-    >
+    <Card padded={false} className={className} as="article">
       <div
         aria-hidden
         className="flex aspect-[16/10] items-center justify-center bg-[#f5f5f7] dark:bg-surface-muted"
       >
-        <span className="text-xs font-medium tracking-wide text-subtle">
+        <Text variant="caption" className="normal-case tracking-wide text-subtle">
           {article.imageLabel}
-        </span>
+        </Text>
       </div>
 
       <div className="flex flex-1 flex-col p-5">
@@ -34,20 +32,20 @@ export function ArticleCard({ article, className }: ArticleCardProps) {
           {article.category}
         </Badge>
 
-        <h3 className="mt-3 font-display text-lg font-semibold tracking-tight text-foreground text-balance">
+        <Heading variant="h4" as="h3" className="mt-3 text-balance">
           {article.title}
-        </h3>
+        </Heading>
 
-        <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-muted">
+        <Text variant="small" className="mt-2 line-clamp-3 flex-1 text-muted">
           {article.excerpt}
-        </p>
+        </Text>
 
-        <div className="mt-5">
+        <CardFooter>
           <Button href={href} variant="secondary" className="w-full">
             Czytaj więcej
           </Button>
-        </div>
+        </CardFooter>
       </div>
-    </article>
+    </Card>
   );
 }

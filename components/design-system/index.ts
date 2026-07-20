@@ -1,6 +1,6 @@
 /**
- * Klimaserwis design system — reusable primitives only.
- * Tokens live in `styles/globals.css` + `tokens.ts`.
+ * Klimaserwis design system — theme, layout helpers, icons.
+ * UI primitives live in `@/components/ui`.
  */
 
 export { ThemeProvider, useTheme } from "@/components/design-system/ThemeProvider";
@@ -19,26 +19,26 @@ export { Stack, Inline, Spacer } from "@/components/design-system/Stack";
 export { Grid, GridItem } from "@/components/design-system/Grid";
 export type { GridCols } from "@/components/design-system/Grid";
 
-export { Container } from "@/components/design-system/Container";
-export type { ContainerSize } from "@/components/design-system/Container";
+export { Container } from "@/components/ui/Container";
+export type { ContainerSize } from "@/components/ui/Container";
 
-export { Button } from "@/components/design-system/Button";
+export { Button } from "@/components/ui/Button";
 export type {
   ButtonProps,
   ButtonSize,
   ButtonVariant,
-} from "@/components/design-system/Button";
+} from "@/components/ui/Button";
 
 export {
   Card,
   CardHeader,
   CardBody,
   CardFooter,
-} from "@/components/design-system/Card";
-export type { CardVariant } from "@/components/design-system/Card";
+} from "@/components/ui/Card";
+export type { CardVariant } from "@/components/ui/Card";
 
-export { Badge } from "@/components/design-system/Badge";
-export type { BadgeTone } from "@/components/design-system/Badge";
+export { Badge } from "@/components/ui/Badge";
+export type { BadgeTone } from "@/components/ui/Badge";
 
 export { Alert } from "@/components/design-system/Alert";
 export type { AlertTone } from "@/components/design-system/Alert";
@@ -73,3 +73,12 @@ export type { IconName, IconSize } from "@/components/design-system/Icon";
 
 export { dsSpacing, dsTextSize } from "@/components/design-system/tokens";
 export type { DsSpacing, DsTextSize } from "@/components/design-system/tokens";
+
+export {
+  Section,
+  PageHeader,
+  Divider,
+  Input,
+  Select,
+  Textarea,
+} from "@/components/ui";

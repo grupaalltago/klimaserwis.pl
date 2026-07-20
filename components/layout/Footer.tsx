@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { Container } from "@/components/ui/Container";
+import { Divider } from "@/components/ui/Divider";
 import { FooterLinkGroup } from "@/components/ui/FooterLinkGroup";
 import { Logo } from "@/components/ui/Logo";
-import { Container } from "@/components/ui/Container";
+import { Text } from "@/components/ui/Text";
 import {
   footerInformation,
   footerLegal,
@@ -12,7 +14,6 @@ import {
 
 /**
  * Minimal Apple-like site footer.
- * Logo + link columns + copyright / legal bar.
  */
 export function Footer() {
   const year = new Date().getFullYear();
@@ -23,9 +24,9 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)] lg:gap-16">
           <div className="max-w-xs space-y-3">
             <Logo className="text-[17px] sm:text-[17px]" />
-            <p className="text-[12px] leading-relaxed text-muted">
+            <Text variant="small" className="text-muted">
               {siteConfig.tagline}
-            </p>
+            </Text>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
@@ -39,16 +40,21 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-black/5 pt-6 dark:border-border sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[11px] text-subtle">
+        <Divider className="mt-12" />
+
+        <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <Text variant="small" className="text-[11px] text-subtle">
             Copyright © {year} {siteConfig.name}. All rights reserved.
-          </p>
+          </Text>
 
           <ul className="flex flex-wrap items-center gap-x-1 text-[11px] text-subtle">
             {footerLegal.map((item, index) => (
               <li key={item.href} className="flex items-center">
                 {index > 0 ? (
-                  <span aria-hidden className="mx-2 text-black/15 dark:text-border">
+                  <span
+                    aria-hidden
+                    className="mx-2 text-black/15 dark:text-border"
+                  >
                     |
                   </span>
                 ) : null}

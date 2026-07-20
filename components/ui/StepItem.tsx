@@ -1,3 +1,4 @@
+import { Heading, Text } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
 export type StepItemProps = {
@@ -25,10 +26,12 @@ export function StepItem({
         {step}
       </span>
       <div className="min-w-0 sm:mt-5">
-        <h3 className="font-display text-lg font-semibold tracking-tight text-foreground">
+        <Heading variant="h4" as="h3">
           {title}
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
+        </Heading>
+        <Text variant="small" className="mt-2 text-muted">
+          {description}
+        </Text>
       </div>
     </div>
   );

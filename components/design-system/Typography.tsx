@@ -1,150 +1,53 @@
 import type { ElementType, ReactNode } from "react";
-import { dsTextSize, type DsTextSize } from "@/components/design-system/tokens";
+import { Heading as UiHeading } from "@/components/ui/Heading";
+import { Text as UiText } from "@/components/ui/Text";
 import { cn } from "@/lib/cn";
 
-type Tone = "default" | "muted" | "subtle" | "brand" | "inverse" | "success" | "danger";
+export {
+  Heading,
+} from "@/components/ui/Heading";
+export type { HeadingProps, HeadingVariant } from "@/components/ui/Heading";
 
-const toneClasses: Record<Tone, string> = {
-  default: "text-foreground",
-  muted: "text-muted",
-  subtle: "text-subtle",
-  brand: "text-brand-700 dark:text-brand-300",
-  inverse: "text-white",
-  success: "text-success",
-  danger: "text-danger",
-};
-
-type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
-
-const headingTags: Record<HeadingLevel, ElementType> = {
-  1: "h1",
-  2: "h2",
-  3: "h3",
-  4: "h4",
-  5: "h5",
-  6: "h6",
-};
-
-const headingSizes: Record<HeadingLevel, string> = {
-  1: "text-4xl sm:text-5xl lg:text-6xl",
-  2: "text-3xl sm:text-4xl",
-  3: "text-xl sm:text-2xl",
-  4: "text-lg sm:text-xl",
-  5: "text-base sm:text-lg",
-  6: "text-sm sm:text-base",
-};
-
-type HeadingProps = {
-  level?: HeadingLevel;
-  children: ReactNode;
-  className?: string;
-  tone?: Tone;
-  id?: string;
-};
-
-export function Heading({
-  level = 2,
-  children,
-  className,
-  tone = "default",
-  id,
-}: HeadingProps) {
-  const Tag = headingTags[level];
-  return (
-    <Tag
-      id={id}
-      className={cn(
-        "font-display font-bold tracking-tight text-balance",
-        headingSizes[level],
-        toneClasses[tone],
-        className,
-      )}
-    >
-      {children}
-    </Tag>
-  );
-}
-
-type TextProps = {
-  as?: ElementType;
-  size?: DsTextSize;
-  tone?: Tone;
-  weight?: "normal" | "medium" | "semibold" | "bold";
-  children: ReactNode;
-  className?: string;
-};
-
-const weightClasses = {
-  normal: "font-normal",
-  medium: "font-medium",
-  semibold: "font-semibold",
-  bold: "font-bold",
-} as const;
-
-export function Text({
-  as: Tag = "p",
-  size = "md",
-  tone = "default",
-  weight = "normal",
-  children,
-  className,
-}: TextProps) {
-  return (
-    <Tag
-      className={cn(
-        "leading-relaxed",
-        dsTextSize[size],
-        toneClasses[tone],
-        weightClasses[weight],
-        className,
-      )}
-    >
-      {children}
-    </Tag>
-  );
-}
+export { Text } from "@/components/ui/Text";
+export type { TextProps, TextVariant } from "@/components/ui/Text";
 
 type EyebrowProps = {
   children: ReactNode;
   className?: string;
-  tone?: Extract<Tone, "brand" | "muted" | "inverse">;
+  tone?: "brand" | "muted" | "inverse";
 };
 
+/** @deprecated Prefer `Text variant="caption"`. */
 export function Eyebrow({
   children,
   className,
   tone = "brand",
 }: EyebrowProps) {
   return (
-    <p
+    <UiText
+      variant="caption"
       className={cn(
-        "font-display text-xs font-semibold uppercase tracking-[0.16em]",
-        toneClasses[tone],
+        tone === "brand" && "text-brand-700 dark:text-brand-300",
+        tone === "inverse" && "text-white",
         className,
       )}
     >
       {children}
-    </p>
+    </UiText>
   );
 }
 
 type LeadProps = {
   children: ReactNode;
   className?: string;
-  tone?: Tone;
 };
 
-export function Lead({ children, className, tone = "muted" }: LeadProps) {
+/** @deprecated Prefer `Text variant="muted"`. */
+export function Lead({ children, className }: LeadProps) {
   return (
-    <p
-      className={cn(
-        "text-base leading-relaxed sm:text-lg",
-        toneClasses[tone],
-        className,
-      )}
-    >
+    <UiText variant="muted" className={cn("sm:text-lg", className)}>
       {children}
-    </p>
+    </UiText>
   );
 }
 
@@ -154,14 +57,36 @@ type CaptionProps = {
   as?: ElementType;
 };
 
+/** @deprecated Prefer `Text variant="caption"` or `variant="small"`. */
 export function Caption({
   children,
   className,
-  as: Tag = "span",
+  as,
 }: CaptionProps) {
   return (
-    <Tag className={cn("text-xs font-medium text-subtle", className)}>
+    <UiText variant="small" as={as ?? "span"} className={cn("font-medium text-subtle", className)}>
       {children}
-    </Tag>
+    </UiText>
+  );
+}
+
+/** Compatibility helper when callers used level-based Heading. */
+export function LegacyHeading({
+  level = 2,
+  children,
+  className,
+  id,
+}: {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  children: ReactNode;
+  className?: string;
+  id?: string;
+}) {
+  const variant =
+    level === 1 ? "h1" : level === 2 ? "h2" : level === 3 ? "h3" : "h4";
+  return (
+    <UiHeading variant={variant} id={id} className={className}>
+      {children}
+    </UiHeading>
   );
 }

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { controlBaseClassName } from "@/components/ui/controlStyles";
 import { cn } from "@/lib/cn";
 
 type SearchBoxProps = {
@@ -40,7 +41,10 @@ export function SearchBox({
         type="search"
         placeholder={placeholder}
         autoComplete="off"
-        className="min-h-12 w-full flex-1 rounded-xl bg-transparent px-4 text-[15px] text-foreground outline-none placeholder:text-subtle"
+        className={cn(
+          controlBaseClassName,
+          "min-h-12 flex-1 border-0 bg-transparent px-4 shadow-none focus-visible:border-transparent focus-visible:ring-0",
+        )}
       />
       <Button type="submit" className="w-full shrink-0 sm:w-auto">
         {submitLabel}
