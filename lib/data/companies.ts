@@ -12,6 +12,12 @@ const companies: Company[] = [
     citySlug: "warszawa",
     rating: 4.8,
     categories: ["Klimatyzacja", "Serwis"],
+    services: [
+      "Montaż klimatyzacji split",
+      "Serwis i przeglądy sezonowe",
+      "Naprawy awaryjne",
+      "Czyszczenie jednostek",
+    ],
     description:
       "Montaż i serwis klimatyzacji split oraz multi-split w Warszawie i okolicach.",
     logoInitials: "AK",
@@ -24,6 +30,12 @@ const companies: Company[] = [
     citySlug: "krakow",
     rating: 4.6,
     categories: ["Pompy ciepła", "Rekuperacja"],
+    services: [
+      "Dobór i montaż pomp ciepła",
+      "Rekuperacja z odzyskiem ciepła",
+      "Audyt energetyczny",
+      "Serwis gwarancyjny",
+    ],
     description:
       "Pompy ciepła powietrze-woda oraz rekuperacja dla domów jednorodzinnych.",
     logoInitials: "TP",
@@ -36,6 +48,12 @@ const companies: Company[] = [
     citySlug: "wroclaw",
     rating: 4.9,
     categories: ["Wentylacja", "Rekuperacja"],
+    services: [
+      "Projekt wentylacji mechanicznej",
+      "Montaż rekuperatorów",
+      "Pomiary i regulacja instalacji",
+      "Konserwacja systemów",
+    ],
     description:
       "Projekt i montaż wentylacji mechanicznej z odzyskiem ciepła dla mieszkań i lokali.",
     logoInitials: "AF",
@@ -48,6 +66,12 @@ const companies: Company[] = [
     citySlug: "gdansk",
     rating: 4.4,
     categories: ["Klimatyzacja", "Serwis"],
+    services: [
+      "Diagnostyka awarii",
+      "Przeglądy sezonowe",
+      "Uzupełnianie czynnika",
+      "Wymiana filtrów",
+    ],
     description:
       "Szybka diagnostyka awarii i przeglądy sezonowe urządzeń klimatyzacyjnych.",
     logoInitials: "CE",
@@ -60,6 +84,12 @@ const companies: Company[] = [
     citySlug: "poznan",
     rating: 4.7,
     categories: ["Pompy ciepła"],
+    services: [
+      "Instalacja pomp ciepła powietrze-woda",
+      "Dobór mocy urządzenia",
+      "Integracja z ogrzewaniem podłogowym",
+      "Szkolenie użytkownika",
+    ],
     description:
       "Dobór i instalacja pomp ciepła z naciskiem na efektywność energetyczną.",
     logoInitials: "EH",
@@ -72,6 +102,12 @@ const companies: Company[] = [
     citySlug: "lodz",
     rating: 4.5,
     categories: ["Klimatyzacja", "Wentylacja"],
+    services: [
+      "HVAC dla biur i sklepów",
+      "Klimatyzacja VRF/VRV",
+      "Wentylacja przemysłowa",
+      "Umowy serwisowe",
+    ],
     description:
       "Kompleksowa obsługa HVAC dla biur, sklepów i inwestycji deweloperskich.",
     logoInitials: "KP",

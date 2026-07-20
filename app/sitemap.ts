@@ -19,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const companyEntries: MetadataRoute.Sitemap = companies.map((company) => ({
-    url: new URL(`/firmy/${company.slug}`, siteConfig.url).toString(),
+    url: new URL(`/firma/${company.slug}`, siteConfig.url).toString(),
     lastModified,
     changeFrequency: "weekly",
     priority: 0.6,

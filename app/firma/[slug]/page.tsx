@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { PagePlaceholder } from "@/components/ui/PagePlaceholder";
+import { CompanyProfile } from "@/components/company/CompanyProfile";
 import { getCompanies, getCompanyBySlug } from "@/lib/data";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
@@ -18,28 +18,29 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const company = await getCompanyBySlug(slug);
+
   if (!company) {
-    return createPageMetadata({ title: "Firma", path: "/firmy", noIndex: true });
+    return createPageMetadata({
+      title: "Firma nie znaleziona",
+      path: "/firmy",
+      noIndex: true,
+    });
   }
 
   return createPageMetadata({
     title: company.name,
     description: `${company.name} — ${company.city}. ${company.description}`,
-    path: `/firmy/${company.slug}`,
+    path: `/firma/${company.slug}`,
   });
 }
 
-export default async function CompanyProfilePage({ params }: PageProps) {
+export default async function CompanyPage({ params }: PageProps) {
   const { slug } = await params;
   const company = await getCompanyBySlug(slug);
+
   if (!company) {
     notFound();
   }
 
-  return (
-    <PagePlaceholder
-      title={company.name}
-      description={`${company.city} · Profil firmy (placeholder).`}
-    />
-  );
+  return <CompanyProfile company={company} />;
 }

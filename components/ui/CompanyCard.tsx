@@ -12,7 +12,7 @@ export type CompanyCardProps = {
  * Reusable company card for listings and homepage sections.
  */
 export function CompanyCard({ company, className }: CompanyCardProps) {
-  const profileHref = `/firmy/${company.slug}`;
+  const profileHref = `/firma/${company.slug}`;
 
   return (
     <article

@@ -9,6 +9,7 @@ export interface Company {
   citySlug: string;
   rating: number;
   categories: string[];
+  services: string[];
   description: string;
   logoInitials: string;
 }
