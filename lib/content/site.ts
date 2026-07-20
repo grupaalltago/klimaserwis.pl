@@ -7,17 +7,21 @@ export const siteConfig = {
   locale: "pl_PL",
 } as const;
 
+/** Primary header navigation — flat links only, no dropdowns. */
 export const navItems = [
   { href: "/firmy", label: "Firmy" },
   { href: "/klimatyzacja", label: "Klimatyzacja" },
   { href: "/pompy-ciepla", label: "Pompy ciepła" },
+  { href: "/rekuperacja", label: "Rekuperacja" },
+  { href: "/wentylacja", label: "Wentylacja" },
   { href: "/poradniki", label: "Poradniki" },
   { href: "/dla-firm", label: "Dla firm" },
+  { href: "/kontakt", label: "Kontakt" },
 ] as const;
 
-export const cta = {
-  label: "Kontakt",
-  href: "/kontakt",
+export const headerCta = {
+  label: "Dodaj firmę",
+  href: "/dla-firm",
 } as const;
 
 export const footerNav = [
@@ -31,6 +35,4 @@ export const footerNav = [
   { href: "/kontakt", label: "Kontakt" },
 ] as const;
 
-export const footerLegal = [
-  { href: "/kontakt", label: "Kontakt" },
-] as const;
+export const footerLegal = [{ href: "/kontakt", label: "Kontakt" }] as const;

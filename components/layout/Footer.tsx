@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { cta, footerLegal, footerNav, siteConfig } from "@/lib/content/site";
+import {
+  footerLegal,
+  footerNav,
+  headerCta,
+  siteConfig,
+} from "@/lib/content/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -21,10 +26,10 @@ export function Footer() {
             pompy ciepła oraz serwis w całej Polsce.
           </p>
           <Link
-            href={cta.href}
+            href={headerCta.href}
             className="inline-flex text-sm font-semibold text-sky-200 transition hover:text-white"
           >
-            {cta.label} →
+            {headerCta.label} →
           </Link>
         </div>
 

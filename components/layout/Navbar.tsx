@@ -1,10 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useId, useState, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { Logo } from "@/components/ui/Logo";
+import { NavLinks } from "@/components/ui/NavLinks";
 import { IconClose, IconMenu, ThemeToggle } from "@/components/design-system";
 import { cn } from "@/lib/cn";
 
@@ -18,10 +19,6 @@ type NavbarProps = {
   cta: NavItem;
   brand?: ReactNode;
 };
-
-function isNavActive(pathname: string, href: string) {
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
 
 export function Navbar({ items, cta, brand }: NavbarProps) {
   const pathname = usePathname();
@@ -39,37 +36,25 @@ export function Navbar({ items, cta, brand }: NavbarProps) {
     };
   }, [open]);
 
+  const close = () => setOpen(false);
+
   return (
     <>
-      <Container className="flex h-16 items-center justify-between gap-4">
-        {brand}
+      <Container className="grid h-16 grid-cols-[auto_1fr_auto] items-center gap-3 md:gap-4">
+        <div className="justify-self-start">{brand ?? <Logo onClick={close} />}</div>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <nav className="flex items-center gap-6" aria-label="Główne">
-            {items.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium transition hover:text-brand-700 dark:hover:text-brand-300",
-                  isNavActive(pathname, item.href)
-                    ? "text-brand-700 underline decoration-brand-400 decoration-2 underline-offset-8 dark:text-brand-300"
-                    : "text-muted",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <ThemeToggle />
-          <Button href={cta.href}>{cta.label}</Button>
+        <div className="hidden justify-self-center xl:block">
+          <NavLinks items={items} />
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle />
+        <div className="flex items-center justify-self-end gap-2">
+          <ThemeToggle className="hidden sm:inline-flex" />
+          <Button href={cta.href} size="sm" className="inline-flex">
+            {cta.label}
+          </Button>
           <button
             type="button"
-            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-border bg-surface text-foreground"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-border bg-white text-foreground xl:hidden dark:bg-surface"
             aria-expanded={open}
             aria-controls={panelId}
             aria-label={open ? "Zamknij menu" : "Otwórz menu"}
@@ -83,41 +68,20 @@ export function Navbar({ items, cta, brand }: NavbarProps) {
       <div
         id={panelId}
         className={cn(
-          "border-t border-border bg-surface lg:hidden",
+          "border-t border-border bg-white xl:hidden dark:bg-surface",
           open ? "block" : "hidden",
         )}
       >
-        <Container className="flex flex-col gap-2 py-4">
-          {items.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-xl px-3 py-3 text-base font-medium text-foreground hover:bg-surface-muted"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link
-            href="/rekuperacja"
-            className="rounded-xl px-3 py-3 text-base font-medium text-foreground hover:bg-surface-muted"
-          >
-            Rekuperacja
-          </Link>
-          <Link
-            href="/wentylacja"
-            className="rounded-xl px-3 py-3 text-base font-medium text-foreground hover:bg-surface-muted"
-          >
-            Wentylacja
-          </Link>
-          <Link
-            href={cta.href}
-            className="rounded-xl px-3 py-3 text-base font-medium text-foreground hover:bg-surface-muted"
-          >
-            Kontakt
-          </Link>
-          <Button href={cta.href} className="mt-2 w-full">
-            {cta.label}
-          </Button>
+        <Container className="flex flex-col gap-3 py-4">
+          <NavLinks
+            items={items}
+            orientation="vertical"
+            onNavigate={close}
+          />
+          <div className="flex items-center gap-2 sm:hidden">
+            <ThemeToggle />
+            <span className="text-xs text-muted">Motyw</span>
+          </div>
         </Container>
       </div>
     </>
