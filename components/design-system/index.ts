@@ -64,6 +64,10 @@ export {
   IconAlert,
   IconInfo,
   IconLoader,
+  IconSnowflake,
+  IconThermometer,
+  IconRecycleAir,
+  IconWind,
 } from "@/components/design-system/Icon";
 export type { IconName, IconSize } from "@/components/design-system/Icon";
 

@@ -178,6 +178,45 @@ export function IconLoader(props: IconProps) {
   );
 }
 
+export function IconSnowflake(props: IconProps) {
+  return (
+    <BaseIcon {...props}>
+      <path d="M12 3v18M5.6 6.6l12.8 10.8M18.4 6.6 5.6 17.4M4 12h16" />
+      <path d="m9 5 3-2 3 2M9 19l3 2 3-2" />
+    </BaseIcon>
+  );
+}
+
+export function IconThermometer(props: IconProps) {
+  return (
+    <BaseIcon {...props}>
+      <path d="M10 14.5V6a2 2 0 1 1 4 0v8.5a3.5 3.5 0 1 1-4 0Z" />
+      <path d="M12 16.5v1" />
+    </BaseIcon>
+  );
+}
+
+export function IconRecycleAir(props: IconProps) {
+  return (
+    <BaseIcon {...props}>
+      <path d="M7 8h8a3 3 0 1 1 0 6h-1" />
+      <path d="m12 11 2 3-2 3" />
+      <path d="M17 16H9a3 3 0 1 1 0-6h1" />
+      <path d="m12 13-2-3 2-3" />
+    </BaseIcon>
+  );
+}
+
+export function IconWind(props: IconProps) {
+  return (
+    <BaseIcon {...props}>
+      <path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5" />
+      <path d="M4 13h13a2.5 2.5 0 1 1-2.5 2.5" />
+      <path d="M4 17h7a2 2 0 1 1-2 2" />
+    </BaseIcon>
+  );
+}
+
 export const icons = {
   search: IconSearch,
   menu: IconMenu,
@@ -195,6 +234,10 @@ export const icons = {
   alert: IconAlert,
   info: IconInfo,
   loader: IconLoader,
+  snowflake: IconSnowflake,
+  thermometer: IconThermometer,
+  recycleAir: IconRecycleAir,
+  wind: IconWind,
 } as const;
 
 export type IconName = keyof typeof icons;

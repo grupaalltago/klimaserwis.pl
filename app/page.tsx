@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CategoriesSection } from "@/components/home/CategoriesSection";
 import { HeroSection } from "@/components/home/HeroSection";
 
 export const metadata: Metadata = {
@@ -6,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <HeroSection />;
+  return (
+    <>
+      <HeroSection />
+      <CategoriesSection />
+    </>
+  );
 }
