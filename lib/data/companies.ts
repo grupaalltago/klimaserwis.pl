@@ -21,6 +21,7 @@ const companies: Company[] = [
     description:
       "Montaż i serwis klimatyzacji split oraz multi-split w Warszawie i okolicach.",
     logoInitials: "AK",
+    createdAt: "2026-01-12",
   },
   {
     id: "2",
@@ -39,6 +40,7 @@ const companies: Company[] = [
     description:
       "Pompy ciepła powietrze-woda oraz rekuperacja dla domów jednorodzinnych.",
     logoInitials: "TP",
+    createdAt: "2026-02-03",
   },
   {
     id: "3",
@@ -57,6 +59,7 @@ const companies: Company[] = [
     description:
       "Projekt i montaż wentylacji mechanicznej z odzyskiem ciepła dla mieszkań i lokali.",
     logoInitials: "AF",
+    createdAt: "2026-03-18",
   },
   {
     id: "4",
@@ -75,6 +78,7 @@ const companies: Company[] = [
     description:
       "Szybka diagnostyka awarii i przeglądy sezonowe urządzeń klimatyzacyjnych.",
     logoInitials: "CE",
+    createdAt: "2026-04-09",
   },
   {
     id: "5",
@@ -93,6 +97,7 @@ const companies: Company[] = [
     description:
       "Dobór i instalacja pomp ciepła z naciskiem na efektywność energetyczną.",
     logoInitials: "EH",
+    createdAt: "2026-05-22",
   },
   {
     id: "6",
@@ -111,6 +116,7 @@ const companies: Company[] = [
     description:
       "Kompleksowa obsługa HVAC dla biur, sklepów i inwestycji deweloperskich.",
     logoInitials: "KP",
+    createdAt: "2026-06-14",
   },
 ];
 

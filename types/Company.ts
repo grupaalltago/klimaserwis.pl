@@ -12,4 +12,6 @@ export interface Company {
   services: string[];
   description: string;
   logoInitials: string;
+  /** ISO date string — used for “newest” sorting until DB timestamps exist. */
+  createdAt: string;
 }
