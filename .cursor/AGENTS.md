@@ -23,3 +23,12 @@ Follow **[rules.md](rules.md)** for all work in this repository (coding, archite
 ## When unclear
 
 Propose at least two alternatives with trade-offs and a non-binding recommendation. Wait for Lead approval / ADR.
+
+## Cursor Cloud specific instructions
+
+Next.js 15 App Router frontend (TypeScript, Tailwind CSS v4). No database, Docker services, or secrets are required to boot the app. `.env.example` is a placeholder only.
+
+- Node.js 22 and npm are available. From the repo root, install with `npm install` (uses `package-lock.json`).
+- Dev server: `npm run dev` serves http://localhost:3000 with Turbopack. In Cloud, bind all interfaces: `npm run dev -- --hostname 0.0.0.0 --port 3000`.
+- `npm run lint` is safe while the dev server is running. Do not run `npm run build` at the same time — it shares the `.next` directory with `next dev`.
+- Navigation and footer labels are Polish and live in `lib/content/site.ts`. The document language is `pl` (`siteConfig.language`).
