@@ -50,10 +50,16 @@ export const footerInformation = [
 ] as const;
 
 export const footerLegal = [
-  { href: "/polityka-prywatnosci", label: "Privacy" },
-  { href: "/regulamin", label: "Terms" },
-  { href: "/polityka-cookies", label: "Cookie Policy" },
+  { href: "/polityka-prywatnosci", label: "Polityka prywatności" },
+  { href: "/regulamin", label: "Regulamin" },
+  { href: "/polityka-cookies", label: "Polityka cookies" },
 ] as const;
+
+export const footerGroups = {
+  quickLinks: "Nawigacja",
+  services: "Usługi",
+  information: "Informacje",
+} as const;
 
 /** Public indexable routes for sitemap (static shells). */
 export const sitemapStaticPaths = [

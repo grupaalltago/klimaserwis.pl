@@ -11,7 +11,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function TermsPage() {
   return (
     <PagePlaceholder
-      title="Terms"
+      title="Regulamin"
       description="Regulamin — treść w przygotowaniu."
     />
   );

@@ -11,7 +11,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function PrivacyPage() {
   return (
     <PagePlaceholder
-      title="Privacy"
+      title="Polityka prywatności"
       description="Polityka prywatności — treść w przygotowaniu."
     />
   );

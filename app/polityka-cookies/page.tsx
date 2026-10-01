@@ -11,7 +11,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function CookiePolicyPage() {
   return (
     <PagePlaceholder
-      title="Cookie Policy"
+      title="Polityka cookies"
       description="Polityka cookies — treść w przygotowaniu."
     />
   );
